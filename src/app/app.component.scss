@@ -1,0 +1,48 @@
+@import '../styles/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.app-name {
+  margin-left: 8px;
+  font-size: 24px;
+}
+
+.sidenav-container {
+  flex: 1;
+  background-color: $background-color;
+}
+.sidenav {
+  min-width:300px;
+  padding: 8px;
+}
+
+.is-mobile .sidenav-container {
+  flex: 1 0 auto;
+}
+
+.toolbar {
+  background-color: $background-color;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidenav {
+    min-width: 400px;
+  }
+}
+
+mat-sidenav-content {
+  padding:12px;
+}

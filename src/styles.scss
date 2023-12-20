@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@import './styles/custom-material-theme.scss';
+
+@include mat.core();
+
+
+
+$magne-primary: mat.define-palette($magne-primary-palette, 900);
+$magne-accent: mat.define-palette($magne-accent-palette, A200, A100, A400);
+$magne-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$magne-theme: mat.define-light-theme((
+  color: (
+    primary: $magne-primary,
+    accent: $magne-accent,
+    warn: $magne-warn,
+  )
+));
+
+@include mat.all-component-themes($magne-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

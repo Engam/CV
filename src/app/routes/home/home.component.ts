@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UserService } from '../../signals/user/user.service';
 import { UserPresentationContainerComponent } from '../../components/user/user-presentation-container/user-presentation-container.component';
+import { PageTitleComponent } from '../../components/page-title/page-title.component';
 
 @Component({
   standalone: true,
   imports: [
     CommonModule,
-    UserPresentationContainerComponent
+    UserPresentationContainerComponent,
+    PageTitleComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -26,5 +28,4 @@ export class HomeComponent {
   phone = this.user.select('phone');
   github = this.user.select('github');
   
-
 }

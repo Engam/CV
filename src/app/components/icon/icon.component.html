@@ -1,0 +1,8 @@
+@if (value) {
+  @if(type === 'material') {
+    <mat-icon>{{value}}</mat-icon>
+  }
+  @else {
+    <img src="{{value}}" alt="{{alt || value}}" class="icon">
+  }
+}
