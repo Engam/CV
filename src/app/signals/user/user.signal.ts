@@ -5,9 +5,14 @@ import { User } from '../../interfaces/user.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends StateService<User> {
+export class UserSignal extends StateService<User> {
 
   constructor() {
     super();
+
+    setTimeout(() => {
+
+    },200)
   }
+
 }

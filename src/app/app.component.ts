@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -8,7 +8,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { AppLoaderService } from './services/app-loader.service';
+import { AppLoaderService } from './services/app-loader/app-loader.service';
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,7 +26,6 @@ import { AppLoaderService } from './services/app-loader.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [
-    AppLoaderService
   ]
 })
 export class AppComponent implements OnDestroy {
@@ -38,18 +39,17 @@ export class AppComponent implements OnDestroy {
   constructor(
     changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher,
-    private appLoaderService: AppLoaderService,
+    private loader: AppLoaderService
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener)
-    appLoaderService.load();
+    this.loader.load();
   }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
     this.mobileQuery.matches.valueOf()
   }
-
 
 }

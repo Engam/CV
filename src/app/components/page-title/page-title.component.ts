@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { UserSignal } from '../../signals/user/user.signal';
 
 @Component({
   selector: 'app-page-title',
@@ -8,5 +9,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './page-title.component.scss'
 })
 export class PageTitleComponent {
+  
   @Input({ required: true }) title: string = '';
 }

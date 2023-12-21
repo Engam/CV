@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { UserService } from '../../signals/user/user.service';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { UserSignal } from '../../signals/user/user.signal';
 import { UserPresentationContainerComponent } from '../../components/user/user-presentation-container/user-presentation-container.component';
 import { PageTitleComponent } from '../../components/page-title/page-title.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   standalone: true,
@@ -15,17 +16,22 @@ import { PageTitleComponent } from '../../components/page-title/page-title.compo
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    UserService
   ]
 })
 export class HomeComponent {
 
-  private user = inject(UserService);
   firstname = this.user.select('firstname');
   image = this.user.select('image');
   lastname = this.user.select('lastname');
   email = this.user.select('email');
   phone = this.user.select('phone');
   github = this.user.select('github');
-  
+
+  constructor(
+    private user: UserSignal
+  ) {
+    
+  }
+
+
 }
