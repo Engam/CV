@@ -1,5 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
-import { UserSignal } from '../../signals/user/user.signal';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-page-title',
