@@ -1,4 +1,8 @@
-# Magne
+# Intro
+
+This project is made to learn and train on the new Angular 17, and maybe AWS Amplify v3 in future.
+
+# General
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
 
