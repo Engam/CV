@@ -9,6 +9,5 @@ import { UserSignal } from '../../signals/user/user.signal';
   styleUrl: './page-title.component.scss'
 })
 export class PageTitleComponent {
-  
   @Input({ required: true }) title: string = '';
 }
